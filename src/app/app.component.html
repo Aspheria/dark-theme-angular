@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <title>Dark Theme</title>
+    <link rel="stylesheet" href="../app/app.component.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Light / Dark Mode</h1>
+        <div class="toggle-container">
+
+            <input type="checkbox" id="switch" name="theme" /><label for="switch">Toggle</label>
+        </div>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae assumenda, saepe ratione mollitia asperiores dolores tempora aperiam accusantium magni pariatur natus suscipit nemo dignissimos atque nisi officiis cupiditate obcaecati illo.</p>
+    </div>
+
+    <script>
+        var checkbox = document.querySelector('input[name=theme]');
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                trans()
+                document.documentElement.setAttribute('data-theme', 'dark')
+            } else {
+                trans()
+                document.documentElement.setAttribute('data-theme', 'light')
+            }
+        })
+
+        let trans = () => {
+            document.documentElement.classList.add('transition');
+            window.setTimeout(() => {
+                document.documentElement.classList.remove('transition');
+            }, 1000)
+
+        }
+    </script>
+
+</body>
+
+</html>
